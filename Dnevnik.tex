@@ -1,0 +1,428 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{textgreek}
+\usepackage{multirow} % for spanning rows
+\usepackage{changepage}
+\usepackage{ulem}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\hypersetup{
+  colorlinks=true,         % Colored links instead of boxes
+  linkcolor=blue,          % Color for internal links
+  citecolor=green,         % Color for citations
+  filecolor=magenta,       % Color for file links
+  urlcolor=cyan,           % Color for external links
+  bookmarksopen=true,      % Display bookmarks when the PDF is opened
+  bookmarksnumbered=true,  % Display section numbers in bookmarks
+  bookmarksdepth=2,        % Set the depth of bookmarks (1 for chapters, 2 for sections, etc.)
+}
+
+\title{Vaje iz mehanike}
+\author{Matija Zanjkovič}
+\date{Maribor, 2023}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Vaja 1: Merjenje gostote}
+\section{Gostota trdne snovi}
+\subsection{Naloga 1}
+Z merjenjem dimenzij (širine (\bm{a}), višine (\bm{b}), dolžine (\bm{c})) in mase (\bm{m}) kvadra določite gostoto \bm{(\rho)} snovi, iz katere je narejen kvader. 
+Gostoto izračunajte po enačbi \bm{\rho\ =\ m/V}, kjer je \bm{V} prostornina (\bm{V\ =\ abc}). Določite tudi napako gostote snovi.
+\subsection{Sistematične napake merilnikov}
+Napaka kljunastega merila: \bm{0.05\ mm}\\
+Napaka mikrometra: \bm{0.01\ mm}\\
+Napaka tehtnice: \bm{0.1\ g}\\
+
+\subsection{Meritve}
+
+% Tabela za meritev a
+\begin{table}[H]
+  \centering
+  \caption{Meritve dimenzije a}
+  \begin{adjustwidth}{-1 cm}{0 cm}
+  \begin{tabular}{cccccccc}
+  \toprule
+  Meritev & $a_{izm}\ [mm]$ & $\overline{a}\ [mm]$ & $a_{izm} - \overline{a}\ [mm]$ & $\Delta a_{sist}\ [mm]$ & \sigma &  $\Delta a_{sl}\ [mm]$ & $a\ [mm]$\\
+  \midrule
+  1 & 8.16 & \multirow{10}{*}{8.16} & 0 & \multirow{10}{*}{0.01} & \multirow{10}{*}{0.02} & \\
+  2 & 8.15 &  & -0.01 &\\
+  3 & 8.20 &  & \sout{0.04} &\\
+  4 & 8.18 &  & 0.02 &\\
+  5 & 8.16 &  & 0.00 & & & & 8.16 \ \pm \ 0.03\\
+  6 & 8.15 &  & -0.01 & & & & = \\
+  7 & 8.16 &  & 0.00 & & & & 8.16 $\cdot$ (1 \ \pm \ 0.004)\\
+  8 & 8.17 &  & 0.01 &\\
+  9 & 8.10 &  & \sout{-0.06} &\\
+  10 & 8.12 &  & \sout{-0.04} &\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+% Tabela za meritev b
+\begin{table}[H]
+  \centering
+  \caption{Meritve dimenzije b}
+  \begin{adjustwidth}{-1 cm}{0 cm}
+  \begin{tabular}{ccccccc}
+  \toprule
+  Meritev & $b_{izm}\ [mm]$ & $\overline{b}\ [mm]$ & $b_{izm} - \overline{b}\ [mm]$ & $\Delta b_{sist}\ [mm]$ & $\Delta b_{sl}\ [mm]$ & $b\ [mm]$\\
+  \midrule
+  1 & 25.25 & \multirow{10}{*}{25.23} & 0.02 & \multirow{10}{*}{0.05} & \multirow{10}{*}{0.03} & \\
+  2 & 25.20 &  & -0.03 &\\
+  3 & 25.20 &  & -0.03 &\\
+  4 & 25.25 &  & 0.02 &\\
+  5 & 25.25 &  & 0.02 & & & 25.23 \ \pm \ 0.08\\
+  6 & 25.20 &  & \sout{-0.03} & & & =\\
+  7 & 25.20 &  & \sout{-0.03} & & & 25.23 $\cdot$ (1 \ \pm \ 0.003)\\
+  8 & 25.20 &  & \sout{-0.03} &\\
+  9 & 25.25 &  & 0.02 &\\
+  10 & 25.25 &  & 0.02 &\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+% Tabela za meritev c
+\begin{table}[H]
+  \centering
+  \caption{Meritve dimenzije c}
+  \begin{adjustwidth}{-1 cm}{0 cm}
+  \begin{tabular}{ccccccc}
+  \toprule
+  Meritev & $c_{izm}\ [mm]$ & $\overline{c}\ [mm]$ & $c_{izm} - \overline{c}\ [mm]$ & $\Delta c_{sist}\ [mm]$ & $\Delta c_{sl}\ [mm]$ & $c\ [mm]$\\
+  \midrule
+  1 & 40.00 & \multirow{10}{*}{40.02} & -0.02 & \multirow{10}{*}{0.05} & \multirow{10}{*}{0.02} & \multirow[b]{4}{*}{40.02 \ \pm \ 0.07}\\
+  2 & 40.00 &  & -0.02 &\\
+  3 & 40.10 &  & \sout{0.08} &\\
+  4 & 40.00 &  & -0.02 &\\
+  5 & 40.00 &  & -0.02 & & & \multirow{2}{*}{=}\\
+  6 & 40.00 &  & -0.02 & & &  \\
+  7 & 40.00 &  & -0.02 & & & \multirow[t]{4}{*}{40.02 $\cdot$ (1 \ \pm \ 0.002)} \\
+  8 & 40.05 &  & \sout{0.03} &\\
+  9 & 40.05 &  & \sout{0.03} &\\
+  10 & 40.00 &  & -0.02 &\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+Meritev mase: $m = 22.8 \ \pm \ 0.1\ g \ = \ 22.8 \cdot (1 \ \pm \ 0.004)\ g$
+
+\pagebreak
+
+\subsection{Računanje gostote}
+
+Gostota se računa po enačbi:
+\begin{equation}
+  \rho = \frac{m}{V}
+\end{equation}
+\\
+Vendar najprej rabimo volumen telesa. Ker gre za kvader lahko uporabimo enačbo:
+\begin{equation}
+  V = abc
+\end{equation}
+\\
+Tako torej dobimo:
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    V = 8.16 \ (1 \pm 0.004)\ mm \cdot 25.23 \ (1 \pm 0.003)\ mm \cdot 40.02 \ (1 \pm 0.002)\ mm\\
+    V = 8.16 \cdot 25.23 \cdot 40.02 \ (1 \pm (0.004 + 0.003 + 0.002))\ mm^3\\
+    V = 8240 \ (1 \pm 0.009) \ mm^3
+  \end{gathered}
+\end{equation}
+\\
+Sedaj lahko izračunamo gostoto telesa:
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    \rho = \frac{22.8 \cdot (1 \ \pm \ 0.004)\ g}{8240 \cdot (1 \pm 0.009) \ mm^3} \\
+    \rho = 2.77 \cdot 10^{-3} \cdot (1 \ \pm \ 0.013) \ \frac{g}{mm^3} \\
+    \rho = 2770 \cdot (1 \ \pm \ 0.013) \ \frac{kg}{m^3}
+  \end{gathered}
+\end{equation}
+
+\subsection{Rezultati}
+Prišli smo do rezultata, da je gostota telesa $\rho = 2770 \cdot (1 \ \pm \ 0.013) \ \frac{kg}{m^3}$ oz. 
+$\rho = (2770 \ \pm \ 36) \ \frac{kg}{m^3}$.
+\\\\
+S tega bi lahko sklepali, da je telo verjetno iz zlitine, ki vsebuje veliko aluminija, saj je njegova gostota: 
+$\rho_{Al} = 2710 \ \frac{kg}{m^3}$.
+
+
+\pagebreak
+
+\section{Gostota kapljevine}
+\subsection{Naloga 2}
+\textbf{a)} Z menzuro in tehtnico izmerite gostoto 20 \% raztopine kuhinjske soli v vodi. Gostoto izmerite tudi z areometrom.\\\\
+\textbf{b)} Z areometrom izmerite gostoto etilnega alkohola.
+
+\subsection{Sistematične napake merilnikov}
+Napaka areometra za raztopino NaCl: $\bm{0.01 \ \left[ \frac{g}{mL} \right]}$ \\
+Napaka areometra za etilni alkohol: $\bm{0.005 \ \left[ \frac{g}{mL} \right]}$ \\
+Merilno območje termometra: od $\bm{-199.9\ ^{\circ}C$} do \bm{$199.9\ ^{\circ}C}$ \\
+Napaka tehtnice: \bm{1\ g} \\
+Napaka menzure: \bm{2\ mL}
+\\
+
+\pagebreak
+
+\subsection{Postopek in meritve}
+
+Najprej smo pripravili 20 \% raztopino NaCl. Skupna masa raztopine je bila:
+\begin{equation}
+  m = (620 \ \pm \ 1 )\ g 
+\end{equation}
+\\
+Nato smo izmerili volumen naše raztopine. Ker je menzura bila premajhna za 
+celotno meritev volumna, smo to morali narediti trikrat.
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    V = (250 \ mL \ \pm \ 2 \ mL) \ + \ (250 \ mL \ \pm \ 2 \ mL) + (51 \ mL \ \pm \ 2 \ mL) \\
+    V = (553 \ \pm \ 6) \ mL \\
+    V = 553 \cdot (1 \ \pm \ 0.01) \ mL
+  \end{gathered}
+\end{equation}
+\\
+
+Nato smo gostoto raztopine NaCl izmerili še z areometrom.
+
+% Tabela za meritev gostote raztopine NaCl
+\begin{table}[H]
+  \centering
+  \caption{Meritve gostote raztopine NaCl z areometrom}
+  \begin{adjustwidth}{-2cm}{0cm}
+  \begin{tabular}{cccccccc}
+  \toprule
+  Meritev & $\rho_{izm} \left[ \frac{g}{mL} \right]$ & $\overline{\rho}\ \left[ \frac{g}{mL} \right]$ & $\rho_{izm} - \overline{\rho}\ \left[ \frac{g}{mL} \right]$ & $\Delta \rho_{sist}\ \left[ \frac{g}{mL} \right]$ & $\Delta \rho_{sl}\ \left[ \frac{g}{mL} \right]$ & $\rho\ \left[ \frac{g}{mL} \right]$ & $T \ [^{\circ}C] $\\
+  \midrule
+  1 & 1.14 & \multirow{5}{*}{1.14} & 0 & \multirow{5}{*}{0.01} & \multirow{5}{*}{0} & & \multirow{5}{*}{19.6}\\
+  2 & 1.14 &  & 0 & & & 1.14 \ \pm \ 0.01 \\
+  3 & 1.15 &  & \sout{0.01} & & & = \\
+  4 & 1.14 &  & 0 & & & 1.14 \cdot (1 \ \pm \ 0.01)\\
+  5 & 1.15 &  & \sout{0.01} & & & \\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+Nato smo še opravili meritve gostote etilnega alkohola, s pomočjo areometra.
+
+\begin{table}[H]
+  \centering
+  \caption{Meritve gostote etilnega alkohola}
+  \begin{adjustwidth}{-2cm}{0cm}
+  \begin{tabular}{cccccccc}
+  \toprule
+  Meritev & $\rho_{izm} \left[ \frac{g}{mL} \right]$ & $\overline{\rho}\ \left[ \frac{g}{mL} \right]$ & $\rho_{izm} - \overline{\rho}\ \left[ \frac{g}{mL} \right]$ & $\Delta \rho_{sist}\ \left[ \frac{g}{mL} \right]$ & $\Delta \rho_{sl}\ \left[ \frac{g}{mL} \right]$ & $\rho\ \left[ \frac{g}{mL} \right]$ & $T \ [^{\circ}C] $\\
+  \midrule
+  1 & 0.805 & \multirow{5}{*}{0.805} & 0 & \multirow{5}{*}{0.005} & \multirow{5}{*}{0} & & \multirow{5}{*}{21.5} \\
+  2 & 0.805 &  & 0 & & & 0.805 \ \pm \ 0.005 \\
+  3 & 0.805 &  & 0 & & & = \\
+  4 & 0.805 &  & 0 & & & 0.805 \cdot (1 \ \pm \ 0.006)\\
+  5 & 0.805 &  & 0 & & & \\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+\pagebreak
+
+\subsection{Računanje gostote}
+
+Računanje gostote 20 \% raztopine NaCl s pomočjo mase in volumna:
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    \rho = \frac{620 \cdot (1 \ \pm \ 0.002)\ g}{553 \cdot (1 \pm 0.01) \ mL} \\
+    \rho = 1.12 \cdot (1 \ \pm \ 0.01) \ \frac{g}{mL} \\
+    \rho = 1120 \cdot (1 \ \pm \ 0.01) \ \frac{kg}{m^3}
+  \end{gathered}
+\end{equation}
+
+\subsection{Rezultati}
+
+Prišli smo do rezultatov, da je gostota 
+
+
+\pagebreak
+\section{Vprašanja}
+\textbf{a)} Razložite, kako temperatura vpliva na merjenje gostote 
+kapljevine. Za koliko odstotkov se spremeni gostota vode, če se 
+temperatura spremeni za \bm{$1 \ K$}? Temperaturni koeficient prostorninskega 
+razteska vode je \bm{$2.06 \cdot 10^{-6}K^{-1}$.}
+\\\\
+\textbf{b)} Razložite fizikalni princip meritve gostote tekočin z areometrom.
+
+\chapter{Vaja 2}
+% Your content for section 1 here
+
+
+\chapter{Vaja 3}
+% Your content for section 1 here
+
+
+\chapter{Vaja 4: Merjenje frekvence}
+
+\section{Naloga}
+Izmerite frekvenco vrtenja plošče, ki je pritrjena na elektromotor na dva načina:\\\\
+\textbf{a)} z elektronskim merilnikom frekvence,\\
+\textbf{b)} z modelom merilnika frekvence.\\\\
+Primerjajte rezultata obeh meritev pri različnih frekvencah vrtenja plošče.\\\\
+Te meritve sem opravil pri napetostih: \textbf{5 V, 6 V, 7 V, 9 V} in \textbf{12 V}, za vsako napetost 5-krat.
+\afterpage{
+\section{Meritve}
+
+\begin{table}[H]
+
+\caption{Z uporabo elektronskega merilnika frekvence}
+\begin{adjustwidth}{-2.5 cm}{0 cm}
+\begin{tabular}{cccccccccccc}
+\toprule
+Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
+
+%pri 5V
+
+\midrule
+1 & \multirow{5}{*}{5 V} & 654.4 & \multirow{5}{*}{658.9} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
+2 & & 670.5 & & \sout{11.6}  &\\
+3 & & 665.3 & & 6.4 &\\
+4 & & 657.0 & & -1.9 &\\
+5 & & 647.4 & & \sout{-11.5} &\\
+
+%pri 6V
+
+\midrule
+6 & \multirow{5}{*}{6 V} & 1058 &  \multirow{5}{*}{1053} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
+7 & & 1054 & & 1 & \\
+8 & & 1037 & & \sout{-16} & \\
+9 & & 1053 & & 0 & \\
+10 & & 1062 & & \sout{9} & \\
+
+%pri 7V
+
+\midrule
+11 & \multirow{5}{*}{7 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
+12 & & 1575 & & 12 &\\
+13 & & 1532 & & \sout{-31} &\\
+14 & & 1567 & & 4 &\\
+15 & & 1565 & & 2 &\\
+
+%pri 9 V
+
+\midrule
+16 & \multirow{5}{*}{9 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
+17 & & 2354 & & \sout{-59} & \\
+18 & & 2449 & & 36 &\\
+19 & & 2469 & & 56 &\\
+20 & & 2444 & & 31 &\\
+
+%pri 12 V
+
+\midrule
+21 & \multirow{5}{*}{12 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
+22 & & 3972 & & \sout{35}\\
+23 & & 3963 & & 26\\
+24 & & 3905 & & \sout{-32}\\
+25 & & 3926 & & -11\\
+% Add more rows here
+\bottomrule
+\end{tabular}
+\end{adjustwidth}
+\end{table}
+}
+\pagebreak
+
+
+
+
+
+%% druga tabela %%%%
+
+\begin{table}[H]
+
+\caption{Z uporabo osciloskopa}
+\begin{adjustwidth}{-2.5 cm}{0 cm}
+\begin{tabular}{cccccccccccc}
+\toprule
+Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
+
+%pri 5V
+
+\midrule
+1 & \multirow{5}{*}{5 V} & 0.080 & \multirow{5}{*}{0.088} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
+2 & & 0.096 & & \sout{11.6}  &\\
+3 & & 0.088 & & 6.4 &\\
+4 & & 0.088 & & -1.9 &\\
+5 & & 0.088 & & \sout{-11.5} &\\
+
+%pri 6V
+
+\midrule
+6 & \multirow{5}{*}{6 V} & 0.052 &  \multirow{5}{*}{0.052} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
+7 & & 0.052 & & 1 & \\
+8 & & 0.050 & & \sout{-16} & \\
+9 & & 0.052 & & 0 & \\
+10 & & 0.052 & & \sout{9} & \\
+
+%pri 7V
+
+\midrule
+11 & \multirow{5}{*}{7 V} & 0.036 & \multirow{5}{*}{0.038} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
+12 & & 0.038 & & 12 &\\
+13 & & 0.038 & & \sout{-31} &\\
+14 & & 0.039 & & 4 &\\
+15 & & 0.038 & & 2 &\\
+
+%pri 9 V
+
+\midrule
+16 & \multirow{5}{*}{9 V} & 0.024 & \multirow{5}{*}{0.023} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
+17 & & 0.023 & & \sout{-59} & \\
+18 & & 0.022 & & 36 &\\
+19 & & 0.023 & & 56 &\\
+20 & & 0.023 & & 31 &\\
+
+%pri 12 V
+
+\midrule
+21 & \multirow{5}{*}{12 V} & 0.0152 & \multirow{5}{*}{0.0150} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
+22 & & 0.0152 & & \sout{35}\\
+23 & & 0.0148 & & 26\\
+24 & & 0.0148 & & \sout{-32}\\
+25 & & 0.0148 & & -11\\
+% Add more rows here
+\bottomrule
+\end{tabular}
+\end{adjustwidth}
+\end{table}
+  
+
+
+
+
+
+
+\end{document}
