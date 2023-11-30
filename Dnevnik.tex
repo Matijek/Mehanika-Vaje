@@ -13,6 +13,8 @@
 \usepackage{bm}
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \hypersetup{
   colorlinks=true,         % Colored links instead of boxes
@@ -40,6 +42,8 @@
 \tableofcontents
 
 \listoftables
+
+\listoffigures
 
 \thispagestyle{empty}
 
@@ -310,6 +314,44 @@ Napaka ravnila: $\bm{0.01 \ cm}$ \\
 Napaka tehtnice: $\bm{0.1 \ g}$ \\
 Napaka za čas: $\frac{0.01}{15} \ s = \bm{0.001 \ s}$
 
+\pagebreak
+
+\section{Merjenje}
+
+Za določanje koeficienta vzmeti sem najprej izmeril raztezke pri različnih masah uteži.
+
+\begin{table}[H]
+  \centering
+  \caption{Raztezek vzmeti pri določeni teži}
+  \begin{adjustwidth}{0cm}{0cm}
+  \begin{tabular}{ccccccccc}
+  \toprule
+  Meritev & $m \ [g]$ & $\Delta m \ [g]$ & $ F \ [N] $ & $\Delta F \ [N]$ & $ x \ [cm] $ & $\Delta \ x \ [cm]$  \\
+  \midrule
+  1 & 50.9 & \multirow{7}{*}{0.1} & 0.499 & \multirow{7}{*}{0.001} & 6.8 & \multirow{7}{*}{0.1} & \\
+  2 & 100.9 &  & 0.990 & & 13.5 & \\
+  3 & 148.9 &  & 1.461 & & 19.8 &  \\
+  4 & 199.4 &  & 1.956 & & 26.6 & \\
+  5 & 148.9 &  & 1.461 & & 19.8 & \\
+  6 & 100.9 &  & 0.990 & & 13.4 & \\
+  7 & 50.9 &  & 0.499 & & 6.6 & \\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
+\noindent
+Nato sem za uteži z masami $50.9  \ g$, $100.9 \ g$ in $148.9 \ g$ izmeril čas
+nihanja za 15 nihajev.  
+
+
+\section{Rezultati}
+
+\begin{figure}[H]
+  \caption{Graf F(x)}
+  \includegraphics[width=\textwidth]{graf}
+\end{figure}
 
 \chapter{Vaja 3}
 % Your content for section 1 here
