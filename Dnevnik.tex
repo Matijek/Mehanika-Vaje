@@ -293,7 +293,33 @@ kapljevine. Za koliko odstotkov se spremeni gostota vode, če se
 temperatura spremeni za \bm{$1 \ K$}? Temperaturni koeficient prostorninskega 
 razteska vode je \bm{$2.06 \cdot 10^{-6}K^{-1}$.}
 \\\\
-\textbf{b)} Razložite fizikalni princip meritve gostote tekočin z areometrom.
+Relativno povečanje volumna vode je sorazmerno spremembi temperature:
+\begin{equation}
+  \frac{\Delta V}{V} = \beta \Delta T
+\end{equation}
+Če torej v enačbo vstavimo podatke dobimo:
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    \frac{\Delta V}{V} = 2.06 \cdot 10^{-6}K^{-1} \cdot 1 \ K \\
+    \frac{\Delta V}{V} = 2.06 \cdot 10^{-4} \%
+  \end{gathered}
+\end{equation}
+\\
+
+\noindent Torej bi se voda razteznila za $2.06 \cdot 10^{-4} \%$.
+
+\bigskip
+
+
+\noindent
+\textbf{b)} Razložite fizikalni princip meritve gostote tekočin z areometrom. \\
+
+\noindent
+Areometer deluje na podlagi vzgona tekočine, v katero je potopljen.
+Ima obliko ozke cevi z utežjo na dnu, ki je dovolj težka, da se areometer potopi v tekočino. 
+Ko je areometer potopljen v tekočino, se potopi do ravni, kjer je vzgon enak teži areometra. 
+Ta raven potopljenosti je odvisna od gostote tekočine.
 
 \chapter{Vaja 2: Merjenje sile}
 
@@ -346,6 +372,39 @@ Nato sem za uteži z masami $50.9  \ g$, $100.9 \ g$ in $148.9 \ g$ izmeril čas
 nihanja za 15 nihajev.  
 
 
+\begin{table}[H]
+  \centering
+  \caption{Nihajni čas}
+  \begin{adjustwidth}{-2cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $m \ [g]$ & $t_{izm} [s]$ & $t_{en \ nihaj} [s]$ &$ \overline{t} \ [s]$ & $t_{en \ nihaj} \ - \ \overline{t} \ [s]$ & $ \sigma \ [s] $ & $\Delta \ t_{sl} \ [s]$ & $ \Delta \ t_{sist} $ & $t \ [s]$\\
+  \midrule
+  1 & \multirow{5}{*}{50.9} & 8.26 & 0.551 & \multirow{5}{*}{0.551} & 0 & \multirow{5}{*}{0} & \multirow{5}{*}{0} & \multirow{5}{*}{0.001} &  \\
+  2 &  & 8.26 & 0.551 & & 0 & & & & $0.551 \ \pm \ 0.001$\\
+  3 &  & 8.24 & 0.549 & & \sout{-0.001} & & & & = \\
+  4 &  & 8.26 & 0.551 & & 0 & & & & $0.551 \cdot (1 \ \pm \ 0.002)$ \\
+  5 &  & 8.28 & 0.552 & & \sout{0.001} & \\
+  \midrule
+  1 & 50.9 & \multirow{7}{*}{0.1} & 0.499 & \multirow{7}{*}{0.001} & 6.8 & \multirow{7}{*}{0.1} & \\
+  2 & 100.9 &  & 0.990 & & 13.5 & \\
+  3 & 148.9 &  & 1.461 & & 19.8 &  \\
+  4 & 199.4 &  & 1.956 & & 26.6 & \\
+  5 & 148.9 &  & 1.461 & & 19.8 & \\
+  \midrule
+  1 & 50.9 & \multirow{7}{*}{0.1} & 0.499 & \multirow{7}{*}{0.001} & 6.8 & \multirow{7}{*}{0.1} & \\
+  2 & 100.9 &  & 0.990 & & 13.5 & \\
+  3 & 148.9 &  & 1.461 & & 19.8 &  \\
+  4 & 199.4 &  & 1.956 & & 26.6 & \\
+  5 & 148.9 &  & 1.461 & & 19.8 & \\
+
+
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+\end{table}
+
 \section{Rezultati}
 
 \begin{figure}[H]
@@ -379,46 +438,46 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 %pri 5V
 
 \midrule
-1 & \multirow{5}{*}{5.0 V} & 654.4 & \multirow{5}{*}{658.9} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{2.9} & \multirow{5}{*}{10.98 \ \pm \ 0.05} \\
-2 & & 670.5 & & \sout{11.6}  &\\
-3 & & 665.3 & & 6.4 &\\
-4 & & 657.0 & & -1.9 &\\
+1 & \multirow{5}{*}{5.0 V} & 654.4 & \multirow{5}{*}{658.9} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{2.9} & \\
+2 & & 670.5 & & \sout{11.6}  & & & & $10.98 \ \pm \ 0.05$\\
+3 & & 665.3 & & 6.4 & & & & =\\
+4 & & 657.0 & & -1.9 & & & & $ 10.98 \cdot (1 \ \pm \ 0.005) $\\
 5 & & 647.4 & & \sout{-11.5} &\\
 
 %pri 6V
 
 \midrule
-6 & \multirow{5}{*}{6.0 V} & 1058 &  \multirow{5}{*}{1053} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{3} & \multirow{5}{*}{17.55 \ \pm \ 0.07}\\
-7 & & 1054 & & 1 & \\
-8 & & 1037 & & \sout{-16} & \\
-9 & & 1053 & & 0 & \\
+6 & \multirow{5}{*}{6.0 V} & 1058 &  \multirow{5}{*}{1053} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{3} & \\
+7 & & 1054 & & 1 & & & & $17.55 \ \pm \ 0.07$\\
+8 & & 1037 & & \sout{-16} & & & & =\\
+9 & & 1053 & & 0 & & & & $17.55 \cdot (1 \ \pm \ 0.004)$\\
 10 & & 1062 & & \sout{9} & \\
 
 %pri 7V
 
 \midrule
-11 & \multirow{5}{*}{7.0 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13}  & \multirow{5}{*}{6} & \multirow{5}{*}{26.05 \ \pm \ 0.12}\\
-12 & & 1575 & & 12 &\\
-13 & & 1532 & & \sout{-31} &\\
-14 & & 1567 & & 4 &\\
+11 & \multirow{5}{*}{7.0 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13}  & \multirow{5}{*}{6} & \\
+12 & & 1575 & & 12 & & & & $ 26.05 \ \pm \ 0.12 $\\
+13 & & 1532 & & \sout{-31} & & & & =\\
+14 & & 1567 & & 4 & & & & $26.05 \cdot (1 \ \pm \ 0.005)$\\
 15 & & 1565 & & 2 &\\
 
 %pri 9 V
 
 \midrule
-16 & \multirow{5}{*}{9.0 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{25} & \multirow{5}{*}{40.22 \ \pm \ 0.22}\\
-17 & & 2354 & & \sout{-59} & \\
-18 & & 2449 & & 36 &\\
-19 & & 2469 & & 56 &\\
+16 & \multirow{5}{*}{9.0 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{25} & \\
+17 & & 2354 & & \sout{-59} & & & & $ 40.22 \ \pm \ 0.22 $\\
+18 & & 2449 & & 36 & & & & =\\
+19 & & 2469 & & 56 & & & & $40.22 \cdot (1 \ \pm \ 0.005)  $\\
 20 & & 2444 & & 31 &\\
 
 %pri 12 V
 
 \midrule
-21 & \multirow{5}{*}{12.0 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{12} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
-22 & & 3972 & & \sout{35}\\
-23 & & 3963 & & 26\\
-24 & & 3905 & & \sout{-32}\\
+21 & \multirow{5}{*}{12.0 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{12} & \\
+22 & & 3972 & & \sout{35} & & & & $65.61 \ \pm \ 0.45$\\
+23 & & 3963 & & 26 & & & & =\\
+24 & & 3905 & & \sout{-32} & & & & $65.61 \cdot (1 \ \pm \ 0.007) $\\
 25 & & 3926 & & -11\\
 % Add more rows here
 \bottomrule
@@ -440,58 +499,60 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 \begin{adjustwidth}{-2.5 cm}{0 cm}
 \begin{tabular}{cccccccccccc}
 \toprule
-Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & \sigma & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
+Meritev & Napetost & $t_{izm} [s]$ & $\overline{t} \ [s]$ & $t_{izm}$ - $\overline{t} \ [s]$ & $t_{sist} \ [s]$ & \sigma & $\Delta t_{slu} [s]$ & \nu~[Hz]\\
 
 %pri 5V
 
 \midrule
-1 & \multirow{5}{*}{5.0 V} & 0.080 & \multirow{5}{*}{0.088} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
-2 & & 0.096 & & \sout{11.6}  &\\
-3 & & 0.088 & & 6.4 &\\
-4 & & 0.088 & & -1.9 &\\
-5 & & 0.088 & & \sout{-11.5} &\\
+1 & \multirow{5}{*}{5.0 V} & -0.080 & \multirow{5}{*}{0.088} & \sout{-0.008} & \multirow{5}{*}{0.004} & \multirow{5}{*}{0} & \multirow{5}{*}{0} & \\
+2 & & 0.096 & & \sout{0.008}  & & & & $11 \cdot (1\ \pm \ 0.05)$\\
+3 & & 0.088 & & 0 & & & & = \\
+4 & & 0.088 & & 0 & & & & $11 \ \pm \ 1$\\
+5 & & 0.088 & & 0 &\\
 
 %pri 6V
 
 \midrule
-6 & \multirow{5}{*}{6.0 V} & 0.052 &  \multirow{5}{*}{0.052} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
-7 & & 0.052 & & 1 & \\
-8 & & 0.050 & & \sout{-16} & \\
-9 & & 0.052 & & 0 & \\
-10 & & 0.052 & & \sout{9} & \\
+6 & \multirow{5}{*}{6.0 V} & 0.052 &  \multirow{5}{*}{0.052} & 0 & \multirow{5}{*}{0.002} & \multirow{5}{*}{0} & \multirow{5}{*}{0} &\\
+7 & & 0.052 & & 0 & & & & $19 \cdot (1\ \pm \ 0.05)$\\
+8 & & 0.050 & & \sout{-0.02} & & & & =\\
+9 & & 0.052 & & 0 & & & & $19 \ \pm \ 1 $\\
+10 & & 0.052 & & \sout{0} & \\
 
 %pri 7V
 
 \midrule
-11 & \multirow{5}{*}{7.0 V} & 0.036 & \multirow{5}{*}{0.038} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
-12 & & 0.038 & & 12 &\\
-13 & & 0.038 & & \sout{-31} &\\
-14 & & 0.039 & & 4 &\\
-15 & & 0.038 & & 2 &\\
+11 & \multirow{5}{*}{7.0 V} & 0.036 & \multirow{5}{*}{0.038} & \sout{-0.002} & \multirow{5}{*}{0.001} & \multirow{5}{*}{0} & \multirow{5}{*}{0} & \\
+12 & & 0.038 & & 0 & & & & $26 \cdot (1 \ \pm \ 0.03) $\\
+13 & & 0.038 & & 0 & & & & =\\
+14 & & 0.039 & & \sout{0.001} & & & & $26 \ \pm \ 1$\\
+15 & & 0.038 & & 0 &\\
 
 %pri 9 V
 
 \midrule
-16 & \multirow{5}{*}{9.0 V} & 0.024 & \multirow{5}{*}{0.023} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
-17 & & 0.023 & & \sout{-59} & \\
-18 & & 0.022 & & 36 &\\
-19 & & 0.023 & & 56 &\\
-20 & & 0.023 & & 31 &\\
+16 & \multirow{5}{*}{9.0 V} & 0.024 & \multirow{5}{*}{0.023} & \sout{0.001} & \multirow{5}{*}{0.001} & \multirow{5}{*}{0} & \multirow{5}{*}{0}\\
+17 & & 0.023 & & 0 & & & & $43 \cdot (1 \ \pm \ 0.04)$\\
+18 & & 0.022 & & \sout{-0.001} & & & & =\\
+19 & & 0.023 & & 0 & & & & $43 \ \pm \ 2$\\
+20 & & 0.023 & & 0 &\\
 
 %pri 12 V
 
 \midrule
-21 & \multirow{5}{*}{12.0 V} & 0.0152 & \multirow{5}{*}{0.0150} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
-22 & & 0.0152 & & \sout{35}\\
-23 & & 0.0148 & & 26\\
-24 & & 0.0148 & & \sout{-32}\\
-25 & & 0.0148 & & -11\\
+21 & \multirow{5}{*}{12.0 V} & 0.0152 & \multirow{5}{*}{0.0150} & 0.0002 & \multirow{5}{*}{0.0004} & \multirow{5}{*}{0.0002} & \multirow{5}{*}{0.0001}\\
+22 & & 0.0152 & & \sout{0.0002} & & & & $66.7 \cdot (1 \ \pm \ 0.03)$\\
+23 & & 0.0148 & & -0.0002 & & & & =\\
+24 & & 0.0148 & & \sout{-0.0002} & & & & $66.7 \ \pm \ 2.0 $\\
+25 & & 0.0148 & & -0.0002\\
 % Add more rows here
 \bottomrule
 \end{tabular}
 \end{adjustwidth}
 \end{table}
   
+
+
 
 
 
