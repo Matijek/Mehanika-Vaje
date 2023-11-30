@@ -39,6 +39,8 @@
 \thispagestyle{empty}
 \tableofcontents
 
+\listoftables
+
 \thispagestyle{empty}
 
 \clearpage  % Start a new page
@@ -326,16 +328,16 @@ Te meritve sem opravil pri napetostih: \textbf{5 V, 6 V, 7 V, 9 V} in \textbf{12
 
 \begin{table}[H]
 
-\caption{Z uporabo elektronskega merilnika frekvence}
-\begin{adjustwidth}{-2.5 cm}{0 cm}
+\caption{Merjenje frekvence uporabo elektronskega merilnika frekvence}
+\begin{adjustwidth}{-3.5 cm}{0 cm}
 \begin{tabular}{cccccccccccc}
 \toprule
-Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
+Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & \sigma &$\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
 
 %pri 5V
 
 \midrule
-1 & \multirow{5}{*}{5 V} & 654.4 & \multirow{5}{*}{658.9} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
+1 & \multirow{5}{*}{5.0 V} & 654.4 & \multirow{5}{*}{658.9} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{2.9} & \multirow{5}{*}{10.98 \ \pm \ 0.05} \\
 2 & & 670.5 & & \sout{11.6}  &\\
 3 & & 665.3 & & 6.4 &\\
 4 & & 657.0 & & -1.9 &\\
@@ -344,7 +346,7 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 %pri 6V
 
 \midrule
-6 & \multirow{5}{*}{6 V} & 1058 &  \multirow{5}{*}{1053} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
+6 & \multirow{5}{*}{6.0 V} & 1058 &  \multirow{5}{*}{1053} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{3} & \multirow{5}{*}{17.55 \ \pm \ 0.07}\\
 7 & & 1054 & & 1 & \\
 8 & & 1037 & & \sout{-16} & \\
 9 & & 1053 & & 0 & \\
@@ -353,7 +355,7 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 %pri 7V
 
 \midrule
-11 & \multirow{5}{*}{7 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
+11 & \multirow{5}{*}{7.0 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13}  & \multirow{5}{*}{6} & \multirow{5}{*}{26.05 \ \pm \ 0.12}\\
 12 & & 1575 & & 12 &\\
 13 & & 1532 & & \sout{-31} &\\
 14 & & 1567 & & 4 &\\
@@ -362,7 +364,7 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 %pri 9 V
 
 \midrule
-16 & \multirow{5}{*}{9 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
+16 & \multirow{5}{*}{9.0 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{25} & \multirow{5}{*}{40.22 \ \pm \ 0.22}\\
 17 & & 2354 & & \sout{-59} & \\
 18 & & 2449 & & 36 &\\
 19 & & 2469 & & 56 &\\
@@ -371,7 +373,7 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 %pri 12 V
 
 \midrule
-21 & \multirow{5}{*}{12 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
+21 & \multirow{5}{*}{12.0 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{12} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
 22 & & 3972 & & \sout{35}\\
 23 & & 3963 & & 26\\
 24 & & 3905 & & \sout{-32}\\
@@ -392,16 +394,16 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 
 \begin{table}[H]
 
-\caption{Z uporabo osciloskopa}
+\caption{Mejrenje frekvence z uporabo osciloskopa}
 \begin{adjustwidth}{-2.5 cm}{0 cm}
 \begin{tabular}{cccccccccccc}
 \toprule
-Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
+Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu$~[min\textsuperscript{-1}] &$\Delta\nu_{sist}$~[min\textsuperscript{-1}] & \sigma & $\Delta\nu_{slu}$ [min\textsuperscript{-1}] & \nu~[Hz]\\
 
 %pri 5V
 
 \midrule
-1 & \multirow{5}{*}{5 V} & 0.080 & \multirow{5}{*}{0.088} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
+1 & \multirow{5}{*}{5.0 V} & 0.080 & \multirow{5}{*}{0.088} & -4.5 & \multirow{5}{*}{0.1} & \multirow{5}{*}{6.5} & \multirow{5}{*}{10.98 \ \pm \ 0.11} \\
 2 & & 0.096 & & \sout{11.6}  &\\
 3 & & 0.088 & & 6.4 &\\
 4 & & 0.088 & & -1.9 &\\
@@ -410,7 +412,7 @@ Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu
 %pri 6V
 
 \midrule
-6 & \multirow{5}{*}{6 V} & 0.052 &  \multirow{5}{*}{0.052} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
+6 & \multirow{5}{*}{6.0 V} & 0.052 &  \multirow{5}{*}{0.052} & 5 & \multirow{5}{*}{1} & \multirow{5}{*}{6} & \multirow{5}{*}{17.55 \ \pm \ 0.10}\\
 7 & & 0.052 & & 1 & \\
 8 & & 0.050 & & \sout{-16} & \\
 9 & & 0.052 & & 0 & \\
@@ -419,7 +421,7 @@ Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu
 %pri 7V
 
 \midrule
-11 & \multirow{5}{*}{7 V} & 0.036 & \multirow{5}{*}{0.038} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
+11 & \multirow{5}{*}{7.0 V} & 0.036 & \multirow{5}{*}{0.038} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13} & \multirow{5}{*}{26.05 \ \pm \ 0.22}\\
 12 & & 0.038 & & 12 &\\
 13 & & 0.038 & & \sout{-31} &\\
 14 & & 0.039 & & 4 &\\
@@ -428,7 +430,7 @@ Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu
 %pri 9 V
 
 \midrule
-16 & \multirow{5}{*}{9 V} & 0.024 & \multirow{5}{*}{0.023} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
+16 & \multirow{5}{*}{9.0 V} & 0.024 & \multirow{5}{*}{0.023} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{40.22 \ \pm \ 0.95}\\
 17 & & 0.023 & & \sout{-59} & \\
 18 & & 0.022 & & 36 &\\
 19 & & 0.023 & & 56 &\\
@@ -437,7 +439,7 @@ Meritev & Napetost & t [s] & $\overline{\mbox{t}}$ & $\nu_{izm}$ - $\overline\nu
 %pri 12 V
 
 \midrule
-21 & \multirow{5}{*}{12 V} & 0.0152 & \multirow{5}{*}{0.0150} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
+21 & \multirow{5}{*}{12.0 V} & 0.0152 & \multirow{5}{*}{0.0150} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{65.61 \ \pm \ 0.45}\\
 22 & & 0.0152 & & \sout{35}\\
 23 & & 0.0148 & & 26\\
 24 & & 0.0148 & & \sout{-32}\\
