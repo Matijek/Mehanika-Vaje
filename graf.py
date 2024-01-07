@@ -8,7 +8,8 @@ x = np.array([6.8, 13.5, 19.8, 26.6, 19.8, 13.4, 6.6])
 x_error = np.array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
 
 # Linear fit through the origin
-slope, _ = np.polyfit(x, force, 1)
+slope, slope_error = np.polyfit(x, force, 1, cov=True)
+slope_error = np.sqrt(slope_error[0, 0])
 
 # Plotting the data
 plt.errorbar(x, force, xerr=x_error, yerr=force_error, fmt='o', label='Podatki z napakami')
@@ -29,6 +30,6 @@ plt.legend()
 # Show the plot
 plt.show()
 
-# Display the slope
+# Display the slope and its error
 print(f"Slope: {slope:.3f}")
 print(f"Slope Error: {slope_error:.3f}")
