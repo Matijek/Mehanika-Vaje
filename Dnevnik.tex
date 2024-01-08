@@ -14,6 +14,8 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{enumitem}
 \graphicspath{ {./images/} }
 
 \hypersetup{
@@ -174,13 +176,13 @@ Sedaj lahko izračunamo gostoto telesa:
   \begin{gathered}
     \rho = \frac{22.8 \cdot (1 \ \pm \ 0.004)\ g}{8240 \cdot (1 \pm 0.005) \ mm^3} \\
     \rho = 2.77 \cdot 10^{-3} \cdot (1 \ \pm \ 0.009) \ \frac{g}{mm^3} \\
-    \rho = 2770 \cdot (1 \ \pm \ 0.009) \ \frac{kg}{m^3}
+    \rho = 2.77 \cdot 10^3 \cdot (1 \ \pm \ 0.009) \ \frac{kg}{m^3}
   \end{gathered}
 \end{equation}
 
 \subsection{Rezultati}
 Prišli smo do rezultata, da je gostota telesa $\rho = 2770 \cdot (1 \ \pm \ 0.009) \ \frac{kg}{m^3}$ oz. 
-$\rho = (2770 \ \pm \ 20) \ \frac{kg}{m^3}$.
+$\rho = (2,77 \ \pm \ 0.02) \cdot 10^3 \ \frac{kg}{m^3}$.
 \\\\
 S tega bi lahko sklepali, da je telo verjetno iz zlitine, ki vsebuje veliko aluminija, saj je njegova gostota: 
 $\rho_{Al} = 2710 \ \frac{kg}{m^3}$.
@@ -345,7 +347,7 @@ Iz diagrama sile v odvisnosti od časa v vseh treh primerih odčitajte nihajni �
 
 \section{Sistematične napake merilnikov}
 
-Napaka ravnila: $\bm{0.01 \ cm}$ \\
+Napaka ravnila: $\bm{0.1 \ cm}$ \\
 Napaka tehtnice: $\bm{0.1 \ g}$ \\
 Napaka za čas: $\frac{0.01}{15} \ s = \bm{0.001 \ s}$
 
@@ -356,6 +358,7 @@ Napaka za čas: $\frac{0.01}{15} \ s = \bm{0.001 \ s}$
 Za določanje koeficienta vzmeti sem najprej izmeril raztezke pri različnih masah uteži.
 
 \begin{table}[H]
+  \label{table:F(x)}
   \centering
   \caption{Raztezek vzmeti pri določeni teži}
   \begin{adjustwidth}{0cm}{0cm}
@@ -384,46 +387,480 @@ nihanja za 15 nihajev.
 \begin{table}[H]
   \centering
   \caption{Nihajni čas}
-  \begin{adjustwidth}{-2cm}{0cm}
+  \begin{adjustwidth}{-3cm}{0cm}
   \begin{tabular}{cccccccccc}
   \toprule
   Meritev & $m \ [g]$ & $t_{izm} [s]$ & $t_{en \ nihaj} [s]$ &$ \overline{t} \ [s]$ & $t_{en \ nihaj} \ - \ \overline{t} \ [s]$ & $ \sigma \ [s] $ & $\Delta \ t_{sl} \ [s]$ & $ \Delta \ t_{sist} $ & $t \ [s]$\\
   \midrule
-  1 & \multirow{5}{*}{50.9} & 8.26 & 0.551 & \multirow{5}{*}{0.551} & 0 & \multirow{5}{*}{0} & \multirow{5}{*}{0} & \multirow{5}{*}{0.001} &  \\
-  2 &  & 8.26 & 0.551 & & 0 & & & & $0.551 \ \pm \ 0.001$\\
+  1 & \multirow{5}{*}{50.9} & 8.26 & 0.551 & \multirow{5}{*}{0.551} & 0 & \multirow{5}{*}{0} & \multirow{5}{*}{0} & \multirow{5}{*}{0.001} &  \multirow{2}{*}{$0.551 \ \pm \ 0.001$}\\
+  2 &  & 8.26 & 0.551 & & 0 & & & & \\
   3 &  & 8.24 & 0.549 & & \sout{-0.001} & & & & = \\
-  4 &  & 8.26 & 0.551 & & 0 & & & & $0.551 \cdot (1 \ \pm \ 0.002)$ \\
+  4 &  & 8.26 & 0.551 & & 0 & & & & \multirow{2}{*}{$0.551 \cdot (1 \ \pm \ 0.002)$} \\
   5 &  & 8.28 & 0.552 & & \sout{0.001} & \\
   \midrule
-  1 & 50.9 & \multirow{7}{*}{0.1} & 0.499 & \multirow{7}{*}{0.001} & 6.8 & \multirow{7}{*}{0.1} & \\
-  2 & 100.9 &  & 0.990 & & 13.5 & \\
-  3 & 148.9 &  & 1.461 & & 19.8 &  \\
-  4 & 199.4 &  & 1.956 & & 26.6 & \\
-  5 & 148.9 &  & 1.461 & & 19.8 & \\
+  1 & \multirow{4}{*}{100.9} & 11.40 & 0.7600 & \multirow{5}{*}{0.7272} & \sout{0.0328} & \multirow{5}{*}{0.0219} & \multirow{5}{*}{0.0069} & \multirow{5}{*}{0.0007} & \multirow{2}{*}{$0.7272 \ \pm \ 0.014$}\\
+  2 & & 10.58 & 0.7053 & & -0.0219 & & & & \\
+  3 & & 10.60 & 0.7067 & & -0.0205 & & & & = \\
+  4 & & 10.62 & 0.7080 & & -0.0192 & & & & \multirow{2}{*}{$0.7272 \cdot (1 \ \pm \ 0.02)$} \\
+  5 & & 11.34 & 0.7560 & & \sout{0.0288}\\
+
   \midrule
-  1 & 50.9 & \multirow{7}{*}{0.1} & 0.499 & \multirow{7}{*}{0.001} & 6.8 & \multirow{7}{*}{0.1} & \\
-  2 & 100.9 &  & 0.990 & & 13.5 & \\
-  3 & 148.9 &  & 1.461 & & 19.8 &  \\
-  4 & 199.4 &  & 1.956 & & 26.6 & \\
-  5 & 148.9 &  & 1.461 & & 19.8 & \\
-
-
+  1 & \multirow{5}{*}{148.9} & 13.64 & 0.9093 & \multirow{5}{*}{0.9099} & -0.0006 & \multirow{5}{*}{0.0008} & \multirow{5}{*}{0.0004} & \multirow{5}{*}{0.0007} & \multirow{2}{*}{$0.9098 \ \pm \ 0.0008$}\\
+  2 & & 13.64 & 0.9093 & & -0.0006 & & & & \\
+  3 & & 13.66 & 0.9107 & & 0.0008 & & & & = \\
+  4 & & 13.62 & 0.9080 & & \sout{-0.0019} & & & & \multirow{2}{*}{$0.9099 \cdot (1 \ \pm \ 0.0009)$}\\
+  5 & & 13.68 & 0.9120 & & \sout{0.0021}\\
   % Add more rows here
   \bottomrule
   \end{tabular}
   \end{adjustwidth}
 \end{table}
 
+\pagebreak
+
 \section{Rezultati}
+
+\subsection{Prožnostni koeficient vzmeti}
+
+Enačba za izračun raztezka je:
+
+\begin{equation}
+  F = kx
+\end{equation}
+
+\noindent Če izpostavimo prožnostni koeficient vzmeti dobimo:
+
+\begin{equation}
+  k = \frac{F}{x}
+\end{equation}
+
+\noindent S pomočjo podatko iz tabele 2.1, narišemo graf sile v odvisnosti od raztezka,
+da dobimo graf F(x).
+  
+
 
 \begin{figure}[H]
   \caption{Graf F(x)}
+  \label{fig:graf}
   \includegraphics[width=\textwidth]{F(x)}
 \end{figure}
 
-\chapter{Vaja 3}
-% Your content for section 1 here
+Iz tega je razvidno, da je koeficient prožnosti vzmeti enak:
 
+\begin{equation}
+  k = (0.0736 \pm 0.0002) \ \frac{N}{cm}
+\end{equation}
+
+\pagebreak
+
+\subsection{Izračun konstane vzmeti}
+
+\noindent Pri tem delu naloge je za vsako izmed uteži treba izračunati konstanto vzmeti.
+\\
+\noindent Za vzmet, ki niha velja sledeča enačba:
+
+\begin{equation}
+  t_0 = 2 \pi \sqrt{\frac{m}{k}}
+\end{equation}
+
+\noindent Nas pri tem zanima, konstanto vzmeti.
+
+\begin{equation}
+  k = m \left(\frac{2 \pi}{t_0}\right)^2
+\end{equation}
+
+\noindent \underline{Izračun za prvo utež:}
+
+\noindent $m_1 = 50.9 \cdot (1 \ \pm \ 0.002) \ g = 50.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.002) \ kg$ \\
+$t_{0_1} = 0.551 \cdot (1 \ \pm \ 0.002) \ s$
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    k_1 = 50.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.002) \ kg \cdot \left(\frac{2 \pi}{0.551 \cdot (1 \ \pm \ 0.002) \ s}\right)^2 \\
+    k_1 = 50.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.002) \ kg \cdot \frac{4 {\pi}^2}{0.551^2 \cdot (1 \ \pm \ 2 \cdot 0.002) \ s^2} \\
+    k_1 = \frac{50.9 \cdot 10^{-3} \cdot 4 {\pi}^2}{0.551^2} \cdot (1 \ \pm \ 0.004) \frac{kg}{s^2} \\
+    \boxed {k_1 = 6.62 \cdot (1 \ \pm \ 0.004) \frac{N}{m}}
+  \end{gathered}
+\end{equation}
+
+
+%%%%%%%%%%%%% Druga utež %%%%%%%%%%%%%%%%%%
+
+\noindent \underline{Izračun za drugo utež:}
+
+\noindent $m_2 = 100.9 \cdot (1 \ \pm \ 0.001) \ g = 100.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.001) \ kg$ \\
+$t_{0_2} = 0.7272 \cdot (1 \ \pm \ 0.02) \ s$
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    k_2 = 100.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.001) \ kg \cdot \left(\frac{2 \pi}{0.7272 \cdot (1 \ \pm \ 0.02) \ s}\right)^2 \\
+    k_2 = 100.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.001) \ kg \cdot \frac{4 {\pi}^2}{0.7272^2 \cdot (1 \ \pm \ 2 \cdot 0.02) \ s^2} \\
+    k_2 = \frac{100.9 \cdot 10^{-3} \cdot 4 {\pi}^2}{0.7272^2} \cdot (1 \ \pm \ 0.04) \frac{kg}{s^2} \\
+    \boxed {k_2 = 7.533 \cdot (1 \ \pm \ 0.04) \frac{N}{m}}
+  \end{gathered}
+\end{equation}
+
+\pagebreak
+%%%%%%%%%%%%% Tretja utež %%%%%%%%%%%%%%%%%%
+
+\noindent \underline{Izračun za tretjo utež:}
+
+\noindent $m_2 = 148.9 \cdot (1 \ \pm \ 0.0007) \ g = 1048.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.0007) \ kg$ \\
+$t_{0_2} = 0.9098 \cdot (1 \ \pm \ 0.0009) \ s$
+
+\begin{equation}
+  \label{eq:1}
+  \begin{gathered}
+    k_3 = 148.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.0007) \ kg \cdot \left(\frac{2 \pi}{0.9098 \cdot (1 \ \pm \ 0.0009) \ s}\right)^2 \\
+    k_3 = 148.9 \cdot 10^{-3} \cdot (1 \ \pm \ 0.0007) \ kg \cdot \frac{4 {\pi}^2}{0.9098^2 \cdot (1 \ \pm \ 2 \cdot 0.0009) \ s^2} \\
+    k_3 = \frac{148.9 \cdot 10^{-3} \cdot 4 {\pi}^2}{0.9098^2} \cdot (1 \ \pm \ 0.003) \frac{kg}{s^2} \\
+    \boxed {k_3 = 7.102 \cdot (1 \ \pm \ 0.003) \frac{N}{m}}
+  \end{gathered}
+\end{equation}
+
+\pagebreak
+
+\section{Vprašanje}
+Uporabite osnove kinematike in dinamike ter razložite, kako lahko samo z
+opazovanjem nihajočega gibanja utemeljimo, da se pri gibanju sila v vzmeti s časom (in
+tudi krajem) spreminja.\\\\
+Opažanje nihajočega gibanja vzmeti nam lahko pomaga razumeti, kako se sila v vzmeti spreminja s časom in krajem. Pri tem je koristno uporabiti osnove kinematike in dinamike.
+
+  \begin{enumerate}
+    \item Osnove kinematike:\\\\
+        Amplituda: Najvišja točka nihanja vzmeti, ki predstavlja največjo oddaljenost od ravnovesne pozicije.\\
+        Frekvenca: Število nihajev vzmeti na enoto časa.\\
+        Nihajni čas: Čas, ki je potreben za en celoten cikel nihanja.
+
+    \item Osnove dinamike:\\\\
+        Hookeov zakon: Sila v vzmeti je sorazmerna s premikom od ravnovesne pozicije. Matematično to izraža enačba F = -kx, kjer je k vzmetna konstanta, x premik od ravnovesne pozicije, in - znak, ki pove, da je smer sile nasprotna smeri premika.
+  \end{enumerate}
+Pri opazovanju nihajočega gibanja vzmeti lahko ugotovimo naslednje:
+
+    \begin{itemize}
+      \item Spreminjanje sile s časom:
+        Ko spustimo utež, se vzmet razteza (telo na vzmeti niha). Vzmetna sila se spreminja, ker se razdalja od ravnovesne pozicije spreminja.
+        Med nihanjem bo največja sila v vzmeti dosežena pri največjem raztezanju ali stiskanju (največji premik od ravnovesne pozicije).
+
+    \item Spreminjanje sile s krajevnim položajem:
+        Vzmetna sila se spreminja tudi glede na trenutni položaj vzmeti. Pri največjem raztezanju ali stiskanju bo sila največja.
+        Pri prehodu skozi ravnovesno pozicijo (kjer je premik nič), bo sila v vzmeti enaka nič.
+
+    \item Povezava med kinematiko in dinamiko:
+        Pospešek ($a$) vzmeti je povezan s silo preko drugega Newtonovega zakona ($F = ma$), kjer je $m$ masa vzmeti.
+        Silo v vzmeti lahko povežemo s premikom in pospeškom preko Hookeovega zakona in drugega Newtonovega zakona.
+    \end{itemize}
+    
+
+\noindent Tako opazovanje nihajočega gibanja vzmeti nam omogoča, da razumemo, kako se sila v vzmeti spreminja s časom (med nihanjem) in krajem (glede na trenutni položaj vzmeti). To povezavo lahko razumemo s pomočjo osnov kinematike in dinamike.
+
+
+
+\chapter{Vaja 3}
+
+\section{Mikrometer in mikrometerska ura}
+
+\subsection{Naloga}
+
+Na tri načine izmerite debelino aluminijaste folije: \\\\
+\textbf{a)} s tehtananjem in z merjenjem dimenzij, \\
+\textbf{b)} z mikrometrom, \\
+\textbf{c)} z mikrometersko uro.
+
+\subsection{Sistematične napake merilnikov}
+
+Napaka tehtnice: \bm{0.1 \ g}, \\
+Napaka ravnila: \bm{1 \ mm}
+
+\pagebreak
+\subsubsection{Meritve dimenzij a, b in tehtanje}
+
+\begin{table}[H]
+  \centering
+  \caption{Masa folije}
+
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $m_{izm} \ [g]$ & $\overline{m} [g]$ & $m_{izm} - \overline{m} [g]$ & $\sigma [g]$ & $\Delta m_{sl} [g]$ &  $\Delta m_{sist} [g]$ & $m [g]$\\
+  \midrule
+  1 & 1.2 & \multirow{10}{*}{1.2} & 0 & \multirow{10}{*}{0.1} & \multirow{10}{*}{0} & \multirow{10}{*}{0.1} & \multirow{4}{*}{1.2 \ \pm \ 0.1}\\
+  2 & 1.1 & & -0.1\\
+  3 & 1.1 & & 0\\
+  4 & 1.2 & & 0\\
+  5 & 1.3 & & \sout{0.1} & & & & \multirow{2}{*}{=}\\
+  6 & 1.3 & & \sout{0.1} \\
+  7 & 1.3 & & \sout{0.1} & & & & \multirow{4}{*}{$1.2 \cdot (1 \ \pm \ 0.08)$}\\
+  8 & 1.1 & & -0.1\\
+  9 & 1.2 & & 0\\
+  10 & 1.1 & & -0.1\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Dolžina folije}
+  \begin{adjustwidth}{-1cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $a_{izm} \ [mm]$ & $\overline{a} [mm]$ & $a_{izm} - \overline{a} [mm]$ & $\sigma [mm]$ & $\Delta a_{sl} [mm]$ & $\Delta a_{sist} [mm]$ & $a [mm]$\\
+  \midrule
+  1 & 130 & \multirow{10}{*}{130} & 0 & \multirow{10}{*}{1} & \multirow{10}{*}{0} & \multirow{10}{*}{1} & \multirow{4}{*}{130 \ \pm \ 1}\\
+  2 & 130 & & 0\\
+  3 & 131 & & 1\\
+  4 & 130 & & 0\\
+  5 & 130 & & 0 & & & & \multirow{2}{*}{=}\\
+  6 & 129 & & -1 \\
+  7 & 129 & & \sout{-1} & & & & \multirow{4}{*}{$130 \cdot (1 \ \pm \ 0.008)$}\\
+  8 & 130 & & 0\\
+  9 & 128 & & \sout{-2}\\
+  10 & 128 & & \sout{-2}\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Dolžina folije}
+  \begin{adjustwidth}{-1cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $b_{izm} \ [mm]$ & $\overline{b} [mm]$ & $b_{izm} - \overline{b} [mm]$ & $\sigma [mm]$ & $\Delta b_{sl} [mm]$ & $\Delta b_{sist} [mm]$ & $b [mm]$\\
+  \midrule
+  1 & 300 & \multirow{10}{*}{300} & 0 & \multirow{10}{*}{1} & \multirow{10}{*}{0} & \multirow{10}{*}{1} & \multirow{4}{*}{300 \ \pm \ 1}\\
+  2 & 299 & & \sout{-1}\\
+  3 & 300 & & 0\\
+  4 & 301 & & \sout{1}\\
+  5 & 301 & & \sout{1} & & & & \multirow{2}{*}{=}\\
+  6 & 300 & & 0 \\
+  7 & 300 & & 0 & & & & \multirow{4}{*}{$300 \cdot (1 \ \pm \ 0.003)$}\\
+  8 & 301 & & 1\\
+  9 & 300 & & 0\\
+  10 & 300 & & 0\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\subsubsection{Izračun gostote}
+
+Ker gre za aluminijasto folijo je njena gostata:
+
+\begin{equation}
+  \begin{gathered}
+  \rho = (2.70 \ \pm \ 0.05) \frac{kg}{dm^3} \\
+  \rho = 2.70 \cdot 10^{-3} \cdot (1 \ \pm \ 0.02) \frac{g}{mm^3}
+  \end{gathered}
+\end{equation}\\\\
+Enačba za gostota kvadra je:
+
+\begin{equation}
+  \rho = \frac{m}{abc}
+\end{equation} \\\\
+Nas pri tem zanima debelina, torej c.
+
+\begin{equation}
+  \begin{gathered}
+    c = \frac{m}{\rho ab} \\
+    c = \frac{1.2 \cdot (1 \ \pm \ 0.08) \ g}{2.70 \cdot 10^{-3} \cdot (1 \ \pm \ 0.02) \frac{g}{mm^3} \cdot 
+    130 \cdot (1 \ \pm \ 0.008) \ mm \cdot 300 \cdot (1 \ \pm \ 0.003) \ mm} \\
+    \boxed{c =  0.011 \cdot (1 \ \pm \ 0.1) \ mm}
+  \end{gathered}
+\end{equation}
+
+\pagebreak
+\subsubsection{Meritve z mikrometrom}
+
+Pri merjenju z mikrometrom smo folijo 6-krat prepognili, kar pomeni, da je folija imela $2^{6}$, torej
+64 slojev.
+
+\begin{table}[H]
+  \centering
+  \caption{Merjenje 64 slojev folije z mikrometrom}
+  \begin{adjustwidth}{-1cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $c_{izm} \ [mm]$ & $\overline{c} [mm]$ & $c_{izm} - \overline{c} [mm]$ & $\sigma [mm]$ & $\Delta c_{sl} [mm]$ & $\Delta c_{sist} [mm]$ & $c [mm]$\\
+  \midrule
+  1 & 0.83 & \multirow{10}{*}{0.83} & 0 & \multirow{10}{*}{0.09} & \multirow{10}{*}{0.03} & \multirow{10}{*}{0.01} & \multirow{4}{*}{0.83 \ \pm \ 0.04}\\
+  2 & 0.93 & & \sout{0.10}\\
+  3 & 0.72 & & \sout{-0.11}\\
+  4 & 0.84 & & 0.01\\
+  5 & 0.81 & & -0.02 & & & & \multirow{2}{*}{=}\\
+  6 & 1.01 & & \sout{-0.18} \\
+  7 & 0.84 & & 0.01 & & & & \multirow{4}{*}{$0.83 \cdot (1 \ \pm \ 0.05)$}\\
+  8 & 0.84 & & 0.01\\
+  9 & 0.74 & & -0.09\\
+  10 & 0.78 & & -0.05\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\noindent Ta rezultat je podan za 64 slojev. Torej je en sloj:
+
+\begin{equation}
+  \boxed{c = 0.013 \cdot (1 \ \pm \ 0.05) \ mm}
+\end{equation}
+
+\pagebreak
+
+\subsubsection{Meritev z mikrometersko uro}
+
+Pri merjenju z mikrometrsko uro smo pravtako uporabili 6 krat prepognjeno folijo aluminija.
+
+\begin{table}[H]
+  \centering
+  \caption{Merjenje 64 slojev folije z mikrometersko uro}
+  \begin{adjustwidth}{-1cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \toprule
+  Meritev & $c_{izm} \ [mm]$ & $\overline{c} [mm]$ & $c_{izm} - \overline{c} [mm]$ & $\sigma [mm]$ & $\Delta c_{sl} [mm]$ & $\Delta c_{sist} [mm]$ & $c [mm]$\\
+  \midrule
+  1 & 0.96 & \multirow{10}{*}{0.96} & 0 & \multirow{10}{*}{0.04} & \multirow{10}{*}{0.01} & \multirow{10}{*}{0.01} & \multirow{4}{*}{0.96 \ \pm \ 0.02}\\
+  2 & 1.00 & & \sout{0.04}\\
+  3 & 1.01 & & \sout{0.05}\\
+  4 & 0.96 & & 0\\
+  5 & 0.95 & & -0.01 & & & & \multirow{2}{*}{=}\\
+  6 & 0.95 & & -0.01 \\
+  7 & 0.95 & & -0.01 & & & & \multirow{4}{*}{$0.96 \cdot (1 \ \pm \ 0.02)$}\\
+  8 & 1.00 & & 0.04\\
+  9 & 0.90 & & \sout{-0.06}\\
+  10 & 0.93 & & -0.03\\
+  % Add more rows here
+  \bottomrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\noindent Ta rezultat je podan za 64 slojev. Torej je en sloj:
+
+\begin{equation}
+  \boxed{c = 0.015 \cdot (1 \ \pm \ 0.02) \ mm}
+\end{equation}
+
+\pagebreak
+\section{Sferometer}
+
+\subsection{Naloga}
+S sferometrom določite krivinski polmer krogelnega odseka in izračunajte absolutno
+napako meritve.\\\\
+\subsection{Sistematične napake} 
+Sferometer: \bm{0.01 \ mm}\\
+Kljunasto merilo: \bm{0.1 \ mm}
+
+\pagebreak
+\subsection{Meritve}
+
+\begin{table}[H]
+  \centering
+  \caption{Merjenje višine krogelnega odseka s sferometrom}
+  \begin{adjustwidth}{-1.5cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \midrule
+  Meritev & $h_{izm} \ [mm]$ & $\overline{h} [mm]$ & $h_{izm} - \overline{h} [mm]$ & $\sigma [mm]$ & $\Delta h_{sl} [mm]$ & $\Delta h_{sist} [mm]$ & $h [mm]$\\
+  \midrule
+  1 & 4.29 & \multirow{10}{*}{4.29} & 0 & \multirow{10}{*}{0} & \multirow{10}{*}{0} & \multirow{10}{*}{0.01} & \multirow{4}{*}{4.29 \ \pm \ 0.01}\\
+  2 & 4.30 & & \sout{0.01}\\
+  3 & 4.29 & & \sout{0}\\
+  4 & 4.30 & & \sout{0.01}\\
+  5 & 4.29 & & 0 & & & & \multirow{2}{*}{=}\\
+  6 & 4.29 & & 0 \\
+  7 & 4.29 & & 0 & & & & \multirow{4}{*}{$4.29 \cdot (1 \ \pm \ 0.002)$}\\
+  8 & 4.29 & & 0\\
+  9 & 4.29 & & 0\\
+  10 & 4.29 & & 0\\
+  % Add more rows here
+  \midrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Merjenje polmera s kljunastim merilnikom}
+  \begin{adjustwidth}{-1.5cm}{0cm}
+  \begin{tabular}{cccccccccc}
+  \midrule
+  Meritev & $r_{izm} \ [mm]$ & $\overline{r} [mm]$ & $r_{izm} - \overline{r} [mm]$ & $\sigma [mm]$ & $\Delta r_{sl} [mm]$ & $\Delta r_{sist} [mm]$ & $r [mm]$\\
+  \midrule
+  1 & 30.0 & \multirow{10}{*}{29.9} & 0.1 & \multirow{10}{*}{0.2} & \multirow{10}{*}{0.1} & \multirow{10}{*}{0.1} & \multirow{4}{*}{29.9 \ \pm \ 0.2}\\
+  2 & 30.1 & & 0.2\\
+  3 & 30.3 & & \sout{0.4}\\
+  4 & 30.1 & & 0.2\\
+  5 & 29.8 & & -0.1 & & & & \multirow{2}{*}{=}\\
+  6 & 29.8 & & -0.1 \\
+  7 & 29.5 & & \sout{-0.4} & & & & \multirow{4}{*}{$29.9 \cdot (1 \ \pm \ 0.007)$}\\
+  8 & 29.7 & & -0.2\\
+  9 & 30.4 & & \sout{0.5}\\
+  10 & 29.7 & & -0.2\\
+  % Add more rows here
+  \midrule
+  \end{tabular}
+\end{adjustwidth}
+\end{table}
+
+\pagebreak
+\subsection{Računanje krivinskega polmera}
+
+Graf krivinskega polmera je najlažje odbrati s te slike:
+
+\begin{figure}[H]
+  \caption{Slika krivinskega polmera}
+  \label{fig:graf}
+  \includegraphics[width=\textwidth]{Krivinski_polmer}
+\end{figure}
+S pomočjo pravokotnega trikotni lahko izpeljemo sledečo formulo:
+
+
+\begin{equation}
+  \begin{gathered}
+    R^2 = (R - h)^2 + r^2 \\
+    R^2 = R^2 - 2Rh + h^2 + r^2 \\
+    R = \frac{h^2 + r^2}{2h}
+  \end{gathered}
+\end{equation}
+
+Če v formulo vstavimo podatke dobimo:
+
+\begin{equation}
+  \begin{gathered}
+    R = \frac{4.29^2 \cdot (1 \ \pm \ 2 \cdot 0.002) \ mm^2 + 29.9^2 \cdot (1 \ \pm \ 2 \cdot 0.007) \ mm^2}{2 \cdot 4.29 \cdot (1 \ \pm \ 0.002) \ mm}\\
+    R = \frac{(18.4 \ \pm \ 0.01) \ mm^2 + (894 \ \pm \ 13) \ mm^2}{8.58 \cdot (1 \ \pm \ 0.002) \ mm}\\
+    R = \frac{(912 \ \pm \ 13) \ mm^2}{8.58 \cdot (1 \ \pm \ 0.002) \ mm}\\
+    R = \frac{912 \cdot (1 \ \pm \ 0.01) \ mm}{8.58 \cdot (1 \ \pm \ 0.002)}\\
+    \boxed{R = 106 \cdot (1 \ \pm \ 0.01) \ mm}
+  \end{gathered}
+\end{equation}
+
+
+
+\pagebreak
+\section{Mikroskop}
+\subsection{Navodila}
+\bm{a)} Umerite merilno mrežo mikroskopa in izmerite premer tanke žičke, premer majhne
+luknjice, debelino svojega lasu in število nitk na milimeter pri mrežici za sitotisk.\\\\
+\bm{b)}  Z navadnim ravnilom skušajte na \bm{0.1 \ mm} natančno izmeriti debelino črte, ki
+je tanjša od \bm{1 \ mm}. Ocenite napako take meritve. Nato debelino črte izmerite še z merilnim
+mikroskopom in preverite, ali ste z ravnilom debelino pravilno ocenili.
+
+\pagebreak
+\section{Meritve z lasersko svetlobo}
+
+
+\pagebreak
+
+\section{Vprašanja}
+Katere pomembne lastnosti ima laserska svetloba, da lahko z njo opravljamo interferenčne
+poskuse? Ali bi poskus uspel s sončno svetlobo? Pri odgovoru na vprašanje si pomagajte
+z literaturo.
 
 \chapter{Vaja 4: Merjenje frekvence}
 
@@ -468,27 +905,27 @@ Meritev & Napetost & $\nu_{izm}$~[min\textsuperscript{-1}] & $\overline\nu$ & $\
 
 \midrule
 11 & \multirow{5}{*}{7.0 V} & 1576 & \multirow{5}{*}{1563} & \sout{13} & \multirow{5}{*}{1} & \multirow{5}{*}{13}  & \multirow{5}{*}{6} & \\
-12 & & 1575 & & 12 & & & & $ 26.05 \ \pm \ 0.12 $\\
+12 & & 1575 & & 12 & & & & $ 26.1 \ \pm \ 0.1 $\\
 13 & & 1532 & & \sout{-31} & & & & =\\
-14 & & 1567 & & 4 & & & & $26.05 \cdot (1 \ \pm \ 0.005)$\\
+14 & & 1567 & & 4 & & & & $26.1 \cdot (1 \ \pm \ 0.004)$\\
 15 & & 1565 & & 2 &\\
 
 %pri 9 V
 
 \midrule
 16 & \multirow{5}{*}{9.0 V} & 2351 & \multirow{5}{*}{2413} & \sout{-62} & \multirow{5}{*}{1} & \multirow{5}{*}{57} & \multirow{5}{*}{25} & \\
-17 & & 2354 & & \sout{-59} & & & & $ 40.22 \ \pm \ 0.22 $\\
+17 & & 2354 & & \sout{-59} & & & & $ 40.2 \ \pm \ 0.2 $\\
 18 & & 2449 & & 36 & & & & =\\
-19 & & 2469 & & 56 & & & & $40.22 \cdot (1 \ \pm \ 0.005)  $\\
+19 & & 2469 & & 56 & & & & $40.2 \cdot (1 \ \pm \ 0.005)  $\\
 20 & & 2444 & & 31 &\\
 
 %pri 12 V
 
 \midrule
 21 & \multirow{5}{*}{12.0 V} & 3917 & \multirow{5}{*}{3937} & -20 & \multirow{5}{*}{1} & \multirow{5}{*}{27} & \multirow{5}{*}{12} & \\
-22 & & 3972 & & \sout{35} & & & & $65.61 \ \pm \ 0.45$\\
+22 & & 3972 & & \sout{35} & & & & $65.6 \ \pm \ 0.5$\\
 23 & & 3963 & & 26 & & & & =\\
-24 & & 3905 & & \sout{-32} & & & & $65.61 \cdot (1 \ \pm \ 0.007) $\\
+24 & & 3905 & & \sout{-32} & & & & $65.6 \cdot (1 \ \pm \ 0.008) $\\
 25 & & 3926 & & -11\\
 % Add more rows here
 \bottomrule
